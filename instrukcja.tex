@@ -169,11 +169,11 @@ Wydział Automatyki, Elektroniki i Informatyki
 
 \vfill\vfill
 
-{\Huge\sffamily\bfseries Uniwersalne Metody Projektowania Aplikacji na Urządzenia Mobilne i Wbudowane\par}  
+{\Huge\sffamily\bfseries Implementacja switcha SDN na banana PI R2\par}  
 
 \vfill\vfill
 
-{\LARGE\sf Implementacja switch'a SDN na banana PI R2}   
+{\LARGE\sf }   
 
 
 \vfill \vfill\vfill\vfill
@@ -413,11 +413,22 @@ Rysunek \ref{Dev} przestawia główny widok OFM'a który świadczy o porawnej ko
 \end{figure}
 
 
-\section{Ogólny opis przebiegu proejktu wraz z problemami napotkanymi}
-placeholder
 \section{Uwagi końcowe i wnioski}
-placeholder
-\newpage
+\begin{itemize}
+	\item Deklaracja przepływów z wykorzystaniem adresów ip nie działa, poporostu takie przepływy nie chcą się zapisać, jest to ogólnie zany problem w internecie, niestety nie znaleźliśmy rozwiązania. 
+	\item Aby switch widział urządzenia konieczne jest wymuszenie przepływu pakietów.
+	\item Podczas uruchomienia pierwszego przepływu mija nawet kilka sekund zanim switch zacznie działać.
+	\item Aby switch mógł mieć dostęp do internetu i jednocześnie mieć kontakt z kontrolerem należy używać zewnętrzej karty sieciowe, która umożliwi przepływ pakietów \texttt{OpenFlow}. W tym przypadku do portu wan można podpiąć sieć i tym samym urządzenia dostają adresy ip z puli sieci.
+	\item W przypadku gdy do portu wan nie podłączymy sieci.
+	\item System Armbian nie wspiera obsługi wewnętrznego modułu wi-fi. Doszukaliśmy się informacji, że urzywając zewnętrzych modułów wi-fi podłączonych do gniazda usb są szanse aby uruchomić wi-fi na banana pi. 
+	\item Odrzuciliśmy system OpenWRT, ponieważ nie posiadał bibliotek potrzebnych do zainstalowania OVS'a.
+	\item Podczas tworzenia projektu mieliśmy wrażenie, że większość rzeczy jest przestarzałych i ogólnie nie wspieranych.
+	\item Banana Pi działa bardzo nie stabilenie, czasem po restarcie trzeba uruchamiać skrypt konfigurujący porty lan, a czasem nie.
+	\item Zewnętrzną karta sieciowa jest konieczna, aby w łatwy sposób konfigurować ustawienia sieciowe.
+	
+\end{itemize}
+
+Zewnetrzna karta sieciowa jest konieczna aby w łatwy sposób konfigurować ustawienia sieciowe. 
 
 \section*{Żródła}
 
