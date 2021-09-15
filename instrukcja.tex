@@ -235,7 +235,7 @@ polecenie \texttt{nmap} należy znać sieć i jej maskę. Rysunek \ref{nmap} prz
 \end{figure}
 
 W mojej sieci polecenie określa który adres ip należy do urządzenia, niestety w niektórych sieciach tak się nie dzieje więc trzeba zwracać uwagę na otwarte porty w przypadku banana pi'a  otwarty jest tylko port 22. Aby się połączyć z urządzeniem należy wykonać polecenie: \texttt{ssh root@<adres ip banana pi>}. Po połączeniu możemy przystąpić do konfiguracji. 
-\par Pierwszym krokiem jest zainstalowanie \texttt{Open vSwitch}'a. Po instalacji musimy stworzyć most oraz ustawić adres ip kontrolera. , co jest pokazane poniżej:
+\par Pierwszym krokiem jest zainstalowanie \texttt{Open vSwitch}'a. Po instalacji musimy stworzyć most oraz ustawić adres ip kontrolera, co jest pokazane poniżej:
 \begin{itemize}
 	\item\texttt{ovs-vsctl add-br br1}  
 	\item\texttt{ovs-vsctl set-controller br1 tcp:<adres ip kontrolera>}
@@ -325,8 +325,7 @@ ip link set eth0.50 up
 
 ip link set lan0 nomaster
 ip link set lan1 nomaster
-ip link set 
-\newpagelan2 nomaster
+ip link set lan2 nomaster
 ip link set lan3 nomaster
 ip link set wan nomaster
 
@@ -403,7 +402,7 @@ co rysunek \ref{ovs}. Tym samym powinismy mieć w pełni skonfigurowanego switch
 \end{figure}
 
 \newpage
-Rysunek \ref{Dev} przestawia główny widok OFM'a który świadczy o porawnej konfiguracji i otym że switch wykrył podłączone urządzenia.  
+Rysunek \ref{Dev} przestawia główny widok OFM'a który świadczy o poprawnej konfiguracji i otym że switch wykrył podłączone urządzenia.  
 
 
 \begin{figure} [!h]
@@ -428,14 +427,6 @@ Rysunek \ref{Dev} przestawia główny widok OFM'a który świadczy o porawnej ko
 	
 \end{itemize}
 
-Zewnetrzna karta sieciowa jest konieczna aby w łatwy sposób konfigurować ustawienia sieciowe. 
-
-\section*{Żródła}
-
-\begin{itemize}
-	\item \href{https://john.soban.ski/install-opendaylight-ubuntu-lts-fast.html}{Istalacja Javy wraz z uruchomieniem ODL}
-	\item \href{https://github.com/CiscoDevNet/OpenDaylight-Openflow-App}{OFM}
-\end{itemize}
 
 \end{document}
 % Koniec wieńczy dzieło.
